@@ -54,7 +54,7 @@ const ImageUploader: React.FC = () => {
     }
     if (!predictionResult || !predictionResult.predictions) return null;
     const potolPrediction = predictionResult.predictions.find((prediction: PredictionItem) => prediction.tagName === "potol");
-    if (!potolPrediction || potolPrediction.probability < 0.98) {
+    if (!potolPrediction || potolPrediction.probability < 0.99) {
       return <p className="text-3xl text-red-500">This Image does not have Potol(পটোল)! 😒</p>;
     } else {
       return <p className="text-3xl text-green-500">This Image has Potol(পটোল)! 😊</p>;
