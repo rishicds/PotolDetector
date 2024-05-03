@@ -55,18 +55,25 @@ const ImageUploader: React.FC = () => {
     if (!predictionResult || !predictionResult.predictions) return null;
     const potolPrediction = predictionResult.predictions.find((prediction: PredictionItem) => prediction.tagName === "potol");
     if (!potolPrediction || potolPrediction.probability < 0.7) {
-      return <p className="text-3xl text-red-500">This Image does not have Potol! 😒</p>;
+      return <p className="text-3xl text-red-500">This Image does not have Potol(পটোল)! 😒</p>;
     } else {
-      return <p className="text-3xl text-green-500">This Image has Potol! 😊</p>;
+      return <p className="text-3xl text-green-500">This Image has Potol(পটোল)! 😊</p>;
     }
   };
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-4">PotolDetector</h1>
-      <h2 className="text-xl mb-4">Upload an image and my advanced AI will tell you if it's a potol or not</h2>
-      {selectedImage && <img src={selectedImage} alt="Selected" className="max-w-full mb-4" />}
-      <input type="file" accept="image/*" onChange={handleImageUpload} className="mb-4" />
+      <h1 className="text-4xl font-bold mb-4">পটোল Detector</h1>
+      <h2 className="text-xl mb-4">Upload an image and my advanced AI will tell you if it's a পটোল or not</h2>
+      <div className="relative">
+        <input type="file" accept="image/*" onChange={handleImageUpload} className="absolute top-0 left-0 opacity-0 w-full h-full" />
+        <div className="flex justify-center">
+          <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded">
+            Upload Image
+          </button>
+        </div>
+        {selectedImage && <img src={selectedImage} alt="Selected" className="max-w-full mb-4" />}
+      </div>
       {renderPredictionMessage()}
     </div>
   );
