@@ -18,7 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body ><ImageUploader/></body>
+      <body ><ImageUploader/>
+      <h3 className="container mx-auto px-4 py-2">
+        Made with ❤️ by <a href="https://rishi-paul04.vercel.app/" style={{color: 'red'}}>Rishi</a>
+      </h3>
+      <h4 className="container mx-auto px-4 py-0">
+        See project on <a href="https://github.com/rishicds"style={{color: 'green'}}>Github</a>
+      </h4>
+      </body>
     </html>
   );
 }
